@@ -1,15 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { IUserViewModel } from './type';
-const User: IUserViewModel = {
-  id: 0,
-  name: 'sajjad',
-  lastName: 'seyfollah',
-  age: 26,
-  birthday: '1376/6/6',
-};
+import { useSelector } from '../redux/store';
+import { RootState } from '../redux/store';
 
 export function UserView() {
+  const User = useSelector((state: RootState) => state.user);
   return (
     <View style={{ flexDirection: 'row', gap: 10 }}>
       <Text>{User.name + User.lastName}</Text>

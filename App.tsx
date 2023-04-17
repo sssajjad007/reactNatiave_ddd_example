@@ -2,12 +2,16 @@ import React from 'react';
 import type { PropsWithChildren } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { UserView } from './src/ViewModel/userViewModel';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView style={{ width: '100%', height: '100%' }}>
-      <UserView />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={{ width: '100%', height: '100%' }}>
+        <UserView />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
